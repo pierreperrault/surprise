@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Annonce de Mariage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .slot-machine {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .reel {
+            width: 100px;
+            height: 100px;
+            border: 2px solid #000;
+            margin: 0 10px;
+            font-size: 2em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .reel img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        #message {
+            font-size: 2em;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Surprise !</h1>
+    <div class="slot-machine">
+        <div class="reel" id="reel1"><img src="photo1.jpg" alt="photo1"></div>
+        <div class="reel" id="reel2"><img src="photo2.jpg" alt="photo2"></div>
+        <div class="reel" id="reel3"><img src="photo3.jpg" alt="photo3"></div>
+    </div>
+    <button onclick="startSlotMachine()">Jouer</button>
+    <div id="message"></div>
+
+    <script>
+        const images = ["photo1.jpg", "photo2.jpg", "photo3.jpg", "photo4.jpg", "photo5.jpg", "photo6.jpg"];
+        let reels = [document.getElementById('reel1'), document.getElementById('reel2'), document.getElementById('reel3')];
+        let message = document.getElementById('message');
+
+        function startSlotMachine() {
+            message.textContent = '';
+            let count = 0;
+            let interval = setInterval(() => {
+                for (let reel of reels) {
+                    let randomImage = images[Math.floor(Math.random() * images.length)];
+                    reel.innerHTML = `<img src="${randomImage}">`;
+                }
+                count++;
+                if (count > 20) {
+                    clearInterval(interval);
+                    slowDown();
+                }
+            }, 100);
+        }
+
+        function slowDown() {
+            let count = 0;
+            let interval = setInterval(() => {
+                for (let reel of reels) {
+                    let randomImage = images[Math.floor(Math.random() * images.length)];
+                    reel.textContent = randomImage;
+                }
+                count++;
+                if (count > 10) {
+                    clearInterval(interval);
+                    revealMessage();
+                }
+            }, 300);
+        }
+
+        function revealMessage() {
+            reels[0].textContent = "💍";
+            reels[1].textContent = "💍";
+            reels[2].textContent = "💍";
+            message.textContent = "On se marie !";
+        }
+    </script>
+</body>
+</html>
