@@ -40,15 +40,15 @@
 <body>
     <h1>Surprise !</h1>
     <div class="slot-machine">
-        <div class="reel" id="reel1"><img src="img/1.jpg" alt="photo1"></div>
-        <div class="reel" id="reel2"><img src="img/2.jpg" alt="photo2"></div>
-        <div class="reel" id="reel3"><img src="img/3.jpg" alt="photo3"></div>
+        <div class="reel" id="reel1"><img src="img/7.jpg" alt="7"></div>
+        <div class="reel" id="reel2"><img src="img/7.jpg" alt="7"></div>
+        <div class="reel" id="reel3"><img src="img/7.jpg" alt="7"></div>
     </div>
     <button onclick="startSlotMachine()">Jouer</button>
     <div id="message"></div>
 
     <script>
-        const images = ["img/photo1.jpg", "img/photo2.jpg", "img/photo3.jpg", "img/photo4.jpg", "img/photo5.jpg", "img/photo6.jpg"];
+        const images = ["img/7.jpg", "img/peinture.jpg", "img/bad.jfif", "img/pi.jpg", "img/twirling.jpg", "img/timebomb.jpg", "img/meche.jpg", "img/cuisine.jpg"];
         let reels = [document.getElementById('reel1'), document.getElementById('reel2'), document.getElementById('reel3')];
         let message = document.getElementById('message');
 
@@ -65,7 +65,7 @@
                     clearInterval(interval);
                     slowDown();
                 }
-            }, 100);
+            }, 200);
         }
 
         function slowDown() {
@@ -73,20 +73,20 @@
             let interval = setInterval(() => {
                 for (let reel of reels) {
                     let randomImage = images[Math.floor(Math.random() * images.length)];
-                    reel.textContent = randomImage;
+                    reel.innerHTML = `<img src="${randomImage}">`;
                 }
                 count++;
                 if (count > 10) {
                     clearInterval(interval);
                     revealMessage();
                 }
-            }, 300);
+            }, 400);
         }
 
         function revealMessage() {
-            reels[0].textContent = "💍";
-            reels[1].textContent = "💍";
-            reels[2].textContent = "💍";
+            reels[0].innerHTML = `<img src="img/bague.jpg">`;
+            reels[1].innerHTML = `<img src="img/bague.jpg">`;
+            reels[2].innerHTML = `<img src="img/bague.jpg">`;
             message.textContent = "On se marie !";
         }
     </script>
