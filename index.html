@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Annonce de Mariage</title>
+    <title>Surprise</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -40,15 +40,15 @@
 <body>
     <h1>Surprise !</h1>
     <div class="slot-machine">
-        <div class="reel" id="reel1"><img src="photo1.jpg" alt="photo1"></div>
-        <div class="reel" id="reel2"><img src="photo2.jpg" alt="photo2"></div>
-        <div class="reel" id="reel3"><img src="photo3.jpg" alt="photo3"></div>
+        <div class="reel" id="reel1"><img src="img/1.jpg" alt="photo1"></div>
+        <div class="reel" id="reel2"><img src="img/2.jpg" alt="photo2"></div>
+        <div class="reel" id="reel3"><img src="img/3.jpg" alt="photo3"></div>
     </div>
     <button onclick="startSlotMachine()">Jouer</button>
     <div id="message"></div>
 
     <script>
-        const images = ["photo1.jpg", "photo2.jpg", "photo3.jpg", "photo4.jpg", "photo5.jpg", "photo6.jpg"];
+        const images = ["img/photo1.jpg", "img/photo2.jpg", "img/photo3.jpg", "img/photo4.jpg", "img/photo5.jpg", "img/photo6.jpg"];
         let reels = [document.getElementById('reel1'), document.getElementById('reel2'), document.getElementById('reel3')];
         let message = document.getElementById('message');
 
